@@ -1,4 +1,6 @@
-#pragma once
+#ifndef P02_1_GAME_H
+#define P02_1_GAME_H
+
 #include <iostream>
 #include <ctime>
 #include <fstream>
@@ -43,3 +45,5 @@ void setGameDifficulty(int& difficultyChoice, Difficulty& gameDifficulty);
 
 // Set the difficulty speed based on difficulty speed enum
 void setDifficultySpeed(Difficulty gameDifficulty, int& difficultySpeed);
+
+#endif
