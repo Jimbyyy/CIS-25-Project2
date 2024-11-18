@@ -4,7 +4,7 @@ Author: Jimmy Hsu
 
 Project: Flappy Bird in Terminal
 
-Recording: [Video Overview Here]()
+Recording: [Video Overview Here](https://youtu.be/zZiiCWDBftI)
 
 ## Project Objective
 
