@@ -10,6 +10,22 @@ Recording: [Video Overview Here]()
 
 The original objective of this project was to simulate the popular mobile game, "Flappy Bird", in the terminal. The plan was to expand beyond the scope of the last project, "Stock Simulator", by implementing adjustable difficulty settings, a highscore tracker, and a permanant score board. Due to time constraints and unforseen technical difficulties, however, a scoreboard was unable to be inplemented. Unfortunately, this program will **only run on Windows** as it relies on a few key Windows specific functions. Further commit notes can be found on my [main repo](https://github.com/Jimbyyy/CiS25)
 
+## Explanation of the Code
+
+1. **Game Setup**: The game initializes with the bird in the center of the screen, and a score of 0. The pipe positions are randomly generated and added to the screen as the game progresses.
+
+2. **Drawing the Screen**: The screen is "cleared" each time using ANSI escape codes. Then, the borders(#), bird (O) and the pipes (|) are drawn on the screen from right to left, top to bottom. The pipes move from right to left across the screen.
+
+3. **Bird Physics**: Every frame, the bird will fall and accelerate due to gravity, and the bird’s Y position is updated accordingly. The player can press the space bar to make the bird jump (move up).
+
+4. **Pipe Logic**: Pipes are generated randomly and move left across the screen. The game tracks whether the bird has passed a pipe, and increases the score if the bird successfully flies between pipes. If the bird collides with a pipe, the game ends
+
+5. **Game Over**: The game ends if the bird collides with a pipe or goes out of bounds (top or bottom of the screen).
+
+6. **Input Handling**: The input() function uses the _kbhit() function to detect key presses and responds to the space bar for jumping.
+
+7. **Score Tracking**: The game records the player's highest score to a text file so that it is saved between different playthroughs.
+
 ## Project Takeaways
 
 - The largest hurdle by far was trying to research a way to clear the terminal screen in order to sequentially display frames to mimic motion. Much time was devoted to searching webforums for non-OS specific methods of clearing the terminal, and I eventually was able to stumble upon ANSI escape codes, which was more preferable to using Window's system commands.
