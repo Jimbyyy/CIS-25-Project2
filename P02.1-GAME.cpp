@@ -147,6 +147,7 @@ void writeHighScore(int& score, int& highScore) {
 // Display welcome message and difficulty settings
 void displayWelcome(int& difficultyChoice) {
 	cout << "Welcome to Flappy Bird!" << endl;
+	cout << "(Press spacebar to jump)" << endl;
 	cout << "Choose difficulty level: " << endl;
 	cout << "1. Easy" << endl;
 	cout << "2. Medium" << endl;
