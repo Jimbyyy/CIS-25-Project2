@@ -135,10 +135,9 @@ void readHighScore(int& highScore) {
 void writeHighScore(int& score, int& highScore) {
 	// Update the high score if the current score is higher
 	if (score > highScore) {
-		highScore = score;
 		ofstream outputFile("highScore.txt");  // Open the file for writing
 		if (outputFile.is_open()) {
-			outputFile << highScore;  // Write the high score to the file
+			outputFile << score;  // Write the high score to the file
 			outputFile.close();
 		}
 	}
@@ -188,3 +187,29 @@ void setDifficultySpeed(Difficulty gameDifficulty, int& difficultySpeed) {
 		break;
 	}
 }
+
+DynamicArray::DynamicArray(int size) {
+	this->size = size;
+	this->arrPtr = new int[size];
+}
+
+void DynamicArray::resize(int newSize) {
+	int* arrNew = new int[newSize];
+
+	if (newSize < size) {
+		for (int i = 0; i < newSize; i++) {
+			arrNew[i] = arrPtr[i];
+		}
+	}
+	else {
+		for (int i = 0; i < size; i++) {
+			arrNew[i] = arrPtr[i];
+		}
+	}
+	size = newSize;
+
+	delete[] arrPtr;
+	arrPtr = arrNew;
+	arrNew = nullptr;
+}
+

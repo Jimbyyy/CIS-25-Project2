@@ -42,10 +42,10 @@ int main() {
 	Pipe pipes[10];
 	int numPipes = 0;
 	srand(time(nullptr));
-	
+
 	// Score saver: Parallel arrays for names and scores
 	string* playerNames = nullptr;
-	int* playerScores = nullptr;
+	DynamicArray playerScores(10);
 	int totalPlayers = 0;
 
 	displayWelcome(difficultyChoice);
@@ -65,7 +65,7 @@ int main() {
 	writeHighScore(score, highScore);
 
 	clear();
-	cout << "Game Over! Your final score is: " << score << endl;	
+	cout << "Game Over! Your final score is: " << score << endl;
 
 	return 0;
 }

@@ -16,6 +16,16 @@ struct Pipe {
 	int bottomHeight;
 };
 
+class DynamicArray {
+public:
+	int* arrPtr;
+	int size;
+	DynamicArray(int size);
+	DynamicArray() = default;
+	~DynamicArray() {};
+	void resize(int newSize);
+};
+
 // ANSI clear terminal command
 void clear();
 
@@ -45,5 +55,7 @@ void setGameDifficulty(int& difficultyChoice, Difficulty& gameDifficulty);
 
 // Set the difficulty speed based on difficulty speed enum
 void setDifficultySpeed(Difficulty gameDifficulty, int& difficultySpeed);
+
+
 
 #endif
