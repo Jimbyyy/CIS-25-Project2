@@ -1,25 +1,7 @@
 /*
 Project 2: Flappy Bird
 ----------------------
-Things to do:
-- Create pipes [x]
-- Create display [x]
-- Create input [x]
-- Create game logic [x]
-- Create score tracker [x]
-
-- Create score saver []
-	- Need parallel arrays for name and score
-		- Will read this to text file for permanant saves
-	- Will use dynamic memory and pointers to extract txt files into dynamic arrays for display
-		- Will display name and score
-	- Will use optimized bubblesort to rearrange scores from greatest to least
-		- Will grab top score for display during gameplay
-- Create difficulty settings [x]
-	- Use enumerations to alter global variables
-		- Use a switch-case to determine the right settings for user.
-
-----------------------
+This program runs flappy bird in the terminal!
 */
 
 #include "P02.1-GAME.h"
@@ -29,6 +11,11 @@ const int HEIGHT = 20;
 const int WIDTH = 40;
 
 int main() {
+
+    // Initializing scoreboard variables
+    int maxPlayers = 100; 
+    DynamicArray players(maxPlayers);  // Array to store players
+    int count = loadScoreboard(players.arrPtr);
 
 	// Initializing game variables
 	int birdYCoord = HEIGHT / 2;
@@ -43,10 +30,10 @@ int main() {
 	int numPipes = 0;
 	srand(time(nullptr));
 
-	// Score saver: Parallel arrays for names and scores
-	string* playerNames = nullptr;
-	DynamicArray playerScores(10);
-	int totalPlayers = 0;
+    // Get current player name
+    string playerName;
+    cout << "Enter your name: ";
+    cin >> playerName;
 
 	displayWelcome(difficultyChoice);
 	setGameDifficulty(difficultyChoice, gameDifficulty);
@@ -65,7 +52,26 @@ int main() {
 	writeHighScore(score, highScore);
 
 	clear();
-	cout << "Game Over! Your final score is: " << score << endl;
+	cout << "Game Over! Your final score is: " << score << endl << endl;
+
+    // Store the new player's score
+    if (count < maxPlayers) {
+        players.arrPtr[count].name = playerName;
+        players.arrPtr[count].score = score;
+        ++count;
+    }
+    else {
+        cout << "Sorry, the scoreboard is full!" << endl;
+    }
+
+    // Sort the players by score
+    sortScoreboard(players.arrPtr, count);
+
+    // Display the updated scoreboard
+    displayScoreboard(players.arrPtr, count);
+
+    // Save the updated scoreboard back to the file
+    saveScoreboard(players.arrPtr, count);
 
 	return 0;
 }

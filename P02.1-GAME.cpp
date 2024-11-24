@@ -190,11 +190,16 @@ void setDifficultySpeed(Difficulty gameDifficulty, int& difficultySpeed) {
 
 DynamicArray::DynamicArray(int size) {
 	this->size = size;
-	this->arrPtr = new int[size];
+	this->arrPtr = new Player[size];
+}
+
+DynamicArray::~DynamicArray() {
+	delete[] this->arrPtr;
+	this->arrPtr = nullptr;
 }
 
 void DynamicArray::resize(int newSize) {
-	int* arrNew = new int[newSize];
+	Player* arrNew = new Player[newSize];
 
 	if (newSize < size) {
 		for (int i = 0; i < newSize; i++) {
@@ -211,5 +216,69 @@ void DynamicArray::resize(int newSize) {
 	delete[] arrPtr;
 	arrPtr = arrNew;
 	arrNew = nullptr;
+}
+
+// Function to display the scoreboard
+void displayScoreboard(Player players[], int count) {
+	cout << "-------- SCOREBOARD --------\n";
+	cout << "Rank | Name            | Score\n";
+	cout << "----------------------------\n";
+
+	for (int i = 0; i < count; ++i) {
+		cout << setw(4) << i + 1 << " | "
+			<< setw(15) << players[i].name
+			<< " | " << players[i].score << "\n";
+	}
+	cout << "----------------------------\n";
+}
+
+// Function to manually sort the players by score (bubble sort)
+void sortScoreboard(Player players[], int count) {
+	for (int i = 0; i < count - 1; ++i) {
+		for (int j = 0; j < count - i - 1; ++j) {
+			if (players[j].score < players[j + 1].score) {
+				// Swap players[j] and players[j + 1]
+				Player temp = players[j];
+				players[j] = players[j + 1];
+				players[j + 1] = temp;
+			}
+		}
+	}
+}
+
+// Function to load the scoreboard from the file
+int loadScoreboard(Player players[]) {
+	ifstream file("scoreboard.txt");  // Open the file for reading
+	int count = 0;
+
+	if (file.is_open()) {
+		string line;
+		while (getline(file, line)) {
+			stringstream stream(line);
+			string name;
+			int score;
+			stream >> name >> score;
+			players[count].name = name;
+			players[count].score = score;
+			++count;
+		}
+		file.close();
+	}
+	return count;
+}
+
+// Function to save the scoreboard to the file
+void saveScoreboard(Player players[], int count) {
+	ofstream file("scoreboard.txt");  // Open the file for writing
+
+	if (file.is_open()) {
+		for (int i = 0; i < count; ++i) {
+			file << players[i].name << " " << players[i].score << "\n";
+		}
+		file.close();
+	}
+	else {
+		cerr << "Error: Could not open file for writing!" << endl;
+	}
 }
 

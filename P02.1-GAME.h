@@ -4,6 +4,8 @@
 #include <iostream>
 #include <ctime>
 #include <fstream>
+#include <sstream>
+#include <iomanip>
 #include <windows.h>
 #include <conio.h>
 using namespace std;
@@ -16,13 +18,18 @@ struct Pipe {
 	int bottomHeight;
 };
 
+struct Player {
+	string name;
+	int score;
+};
+
 class DynamicArray {
 public:
-	int* arrPtr;
+	Player* arrPtr;
 	int size;
 	DynamicArray(int size);
 	DynamicArray() = default;
-	~DynamicArray() {};
+	~DynamicArray();
 	void resize(int newSize);
 };
 
@@ -56,6 +63,17 @@ void setGameDifficulty(int& difficultyChoice, Difficulty& gameDifficulty);
 // Set the difficulty speed based on difficulty speed enum
 void setDifficultySpeed(Difficulty gameDifficulty, int& difficultySpeed);
 
+// Function to display the scoreboard
+void displayScoreboard(Player players[], int count);
+
+// Function to manually sort the players by score (bubble sort)
+void sortScoreboard(Player players[], int count);
+
+// Function to load the scoreboard from the file
+int loadScoreboard(Player players[]);
+
+// Function to save the scoreboard to the file
+void saveScoreboard(Player players[], int count);
 
 
 #endif
