@@ -26,6 +26,8 @@ The original objective of this project was to simulate the popular mobile game, 
 
 7. **Score Tracking**: The game records the player's highest score to a text file so that it is saved between different playthroughs.
 
+8. **Dynamic Scoreboard**: The game records the name and score of the player to a text file and sorts it for display at the end of each game so that multiple player's scores can be seen from highest to lowest.
+
 ## Project Takeaways
 
 - The largest hurdle by far was trying to research a way to clear the terminal screen in order to sequentially display frames to mimic motion. Much time was devoted to searching webforums for non-OS specific methods of clearing the terminal, and I eventually was able to stumble upon ANSI escape codes, which was more preferable to using Window's system commands.
