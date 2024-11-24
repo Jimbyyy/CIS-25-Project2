@@ -8,7 +8,7 @@ Recording: [Video Overview Here](https://youtu.be/zZiiCWDBftI)
 
 ## Project Objective
 
-The original objective of this project was to simulate the popular mobile game, "Flappy Bird", in the terminal. The plan was to expand beyond the scope of the last project, "Stock Simulator", by implementing adjustable difficulty settings, a highscore tracker, and a permanant score board. Due to time constraints and unforseen technical difficulties, however, a scoreboard was unable to be inplemented. Unfortunately, this program will **only run on Windows** as it relies on a few key Windows specific functions. Further commit notes can be found on my [main repo](https://github.com/Jimbyyy/CiS25)
+The original objective of this project was to simulate the popular mobile game, "Flappy Bird", in the terminal. The plan was to expand beyond the scope of the last project, "Stock Simulator", by implementing adjustable difficulty settings, a highscore tracker, and a permanant score board. Unfortunately, this program will **only run on Windows** as it relies on a few key Windows specific functions. Further commit notes can be found on my [main repo](https://github.com/Jimbyyy/CiS25)
 
 ## Explanation of the Code
 
@@ -54,3 +54,6 @@ The original objective of this project was to simulate the popular mobile game, 
 <img width="858" alt="image" src="https://github.com/user-attachments/assets/a72657ee-7674-4661-9f3c-2a95c1527f77">
 
 <img width="857" alt="image" src="https://github.com/user-attachments/assets/919489a7-c015-49c0-bae5-089222390813">
+
+<img width="854" alt="image" src="https://github.com/user-attachments/assets/0afd02bb-d154-48e2-a1f9-3bc0c94292dc">
+
