@@ -25,11 +25,18 @@ struct Player {
 
 class DynamicArray {
 public:
+	// attributes
 	Player* arrPtr;
 	int size;
+
+	// constructors
 	DynamicArray(int size);
 	DynamicArray() = default;
+	
+	// destructor
 	~DynamicArray();
+
+	// resizes the array
 	void resize(int newSize);
 };
 

@@ -1,8 +1,9 @@
-/*
+/*******************************************
 Project 2: Flappy Bird
 ----------------------
 This program runs flappy bird in the terminal!
-*/
+Note that this runs in WINDOWS OS ONLY!!
+********************************************/
 
 #include "P02.1-GAME.h"
 

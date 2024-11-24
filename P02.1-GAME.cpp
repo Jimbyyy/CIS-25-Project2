@@ -237,7 +237,6 @@ void sortScoreboard(Player players[], int count) {
 	for (int i = 0; i < count - 1; ++i) {
 		for (int j = 0; j < count - i - 1; ++j) {
 			if (players[j].score < players[j + 1].score) {
-				// Swap players[j] and players[j + 1]
 				Player temp = players[j];
 				players[j] = players[j + 1];
 				players[j + 1] = temp;
@@ -248,7 +247,7 @@ void sortScoreboard(Player players[], int count) {
 
 // Function to load the scoreboard from the file
 int loadScoreboard(Player players[]) {
-	ifstream file("scoreboard.txt");  // Open the file for reading
+	ifstream file("scoreboard.txt");
 	int count = 0;
 
 	if (file.is_open()) {
@@ -269,7 +268,7 @@ int loadScoreboard(Player players[]) {
 
 // Function to save the scoreboard to the file
 void saveScoreboard(Player players[], int count) {
-	ofstream file("scoreboard.txt");  // Open the file for writing
+	ofstream file("scoreboard.txt");
 
 	if (file.is_open()) {
 		for (int i = 0; i < count; ++i) {
